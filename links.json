@@ -65,6 +65,36 @@
             "url": "https://wiki.mybustimes.cc",
             "icon": "fas fa-book",
             "category": "Main Site"
+        },
+        {
+            "name": "Cloudflare",
+            "url": "https://new.mybustimes.cc/admin",
+            "icon": "fas fa-tools",
+            "category": "Dev Tools"
+        },
+        {
+            "name": "GitHub",
+            "url": "https://update.mybustimes.cc",
+            "icon": "fas fa-bullhorn",
+            "category": "Dev Tools"
+        },
+        {
+            "name": "Google Analytics",
+            "url": "https://analytics.google.com",
+            "icon": "fas fa-chart-pie",
+            "category": "Dev Tools"
+        },
+        {
+            "name": "Jira",
+            "url": "https://mbt-net.atlassian.net/",
+            "icon": "fas fa-tasks",
+            "category": "Dev Tools"
+        },
+        {
+            "name": "Cloud Bever",
+            "url": "https://cb.mybustimes.cc/",
+            "icon": "fas fa-database",
+            "category": "Dev Tools"
         }
     ]
 }
