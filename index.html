@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <style>
+        :root {
+            --bg: #f4f4f4;
+            --text: #333;
+            --card-bg: #ffffff;
+            --icon-color: #007bff;
+        }
+
+        body.dark {
+            --bg: #202020;
+            --text: #e0e0e0;
+            --card-bg: #353535;
+            --icon-color: #4dabf7;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0 auto;
+            padding: 40px 20px;
+            max-width: 750px;
+            text-align: center;
+            background-color: var(--bg);
+            color: var(--text);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+            z-index: 1000;
+        }
+
+        h2 {
+            margin: 40px 0 20px;
+            font-size: 1.5rem;
+            color: var(--text);
+        }
+
+        .category {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: var(--text);
+            display: block;
+        }
+
+        .card i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: var(--icon-color);
+        }
+
+        .card div {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 500px) {
+            .card div {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button class="toggle-btn" id="darkToggle" title="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div id="dashboard"></div>
+
+    <script>
+        // Cookie helpers
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+            document.cookie = `${name}=${value};expires=${d.toUTCString()};path=/`;
+        }
+
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? match[2] : null;
+        }
+
+        // Dark mode toggle
+        const body = document.body;
+        const toggleBtn = document.getElementById('darkToggle');
+
+        function applyTheme() {
+            let theme = getCookie('theme');
+
+            // Default to dark if cookie is not set
+            if (!theme) {
+                theme = 'dark';
+                setCookie('theme', theme, 365);
+            }
+
+            if (theme === 'dark') {
+                body.classList.add('dark');
+                toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                body.classList.remove('dark');
+                toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        }
+
+
+        toggleBtn.addEventListener('click', () => {
+            const isDark = body.classList.toggle('dark');
+            setCookie('theme', isDark ? 'dark' : 'light', 365);
+            applyTheme();
+        });
+
+        // Load theme on start
+        applyTheme();
+
+        // Load links
+        fetch('links.json')
+            .then(response => {
+                if (!response.ok) throw new Error("Failed to load links.json");
+                return response.json();
+            })
+            .then(data => {
+                const dashboard = document.getElementById('dashboard');
+                const categories = {};
+
+                data.links.forEach(link => {
+                    if (!categories[link.category]) {
+                        categories[link.category] = [];
+                    }
+                    categories[link.category].push(link);
+                });
+
+                for (const category in categories) {
+                    const heading = document.createElement('h2');
+                    heading.textContent = category;
+                    dashboard.appendChild(heading);
+
+                    const groupContainer = document.createElement('div');
+                    groupContainer.className = 'category';
+
+                    categories[category].forEach(link => {
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.innerHTML = `
+              <a href="${link.url}" target="_blank">
+                <i class="${link.icon}"></i>
+                <div>${link.name}</div>
+              </a>
+            `;
+                        groupContainer.appendChild(card);
+                    });
+
+                    dashboard.appendChild(groupContainer);
+                }
+            })
+            .catch(error => {
+                console.error('Error loading JSON:', error);
+            });
+    </script>
+</body>
+
+</html>

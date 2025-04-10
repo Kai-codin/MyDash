@@ -1,0 +1,70 @@
+{
+    "links": [
+        {
+            "name": "MyBusTimes",
+            "url": "https://mybustimes.cc",
+            "icon": "fas fa-bus",
+            "category": "Main Site"
+        },
+        {
+            "name": "MyBusTimes Admin",
+            "url": "https://admin.mybustimes.cc",
+            "icon": "fas fa-user-shield",
+            "category": "Admin Sites"
+        },
+        {
+            "name": "Dev MyBusTimes",
+            "url": "https://dev.mybustimes.cc",
+            "icon": "fas fa-code-branch",
+            "category": "Admin Sites"
+        },
+        {
+            "name": "MyTicketer",
+            "url": "https://ticketer.mybustimes.cc",
+            "icon": "fas fa-ticket-alt",
+            "category": "Main Site"
+        },
+        {
+            "name": "MyBusTimes Applications",
+            "url": "https://apply.mybustimes.cc",
+            "icon": "fas fa-file-signature",
+            "category": "Main Site"
+        },
+        {
+            "name": "MyBusTimes API",
+            "url": "https://api.mybustimes.cc",
+            "icon": "fas fa-plug",
+            "category": "Main Site"
+        },
+        {
+            "name": "New MyBusTimes",
+            "url": "https://new.mybustimes.cc",
+            "icon": "fas fa-bus-alt",
+            "category": "New Site"
+        },
+        {
+            "name": "New MyBusTimes API",
+            "url": "https://new.mybustimes.cc/api",
+            "icon": "fas fa-code",
+            "category": "New Site"
+        },
+        {
+            "name": "New MyBusTimes Admin",
+            "url": "https://new.mybustimes.cc/admin",
+            "icon": "fas fa-tools",
+            "category": "New Site"
+        },
+        {
+            "name": "MyBusTimes Updates",
+            "url": "https://update.mybustimes.cc",
+            "icon": "fas fa-bullhorn",
+            "category": "Main Site"
+        },
+        {
+            "name": "MyBusTimes Wiki",
+            "url": "https://wiki.mybustimes.cc",
+            "icon": "fas fa-book",
+            "category": "Main Site"
+        }
+    ]
+}
