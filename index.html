@@ -147,7 +147,7 @@
             .card div {
                 font-size: 0.9rem;
             }
-            
+
             .search-box {
                 flex-direction: column;
                 display: inline-block;
@@ -159,6 +159,8 @@
 
             .search-input {
                 float: left;
+                padding: 10px 0 0 10px;
+                ;
                 width: calc(80% - 20px);
             }
 
@@ -166,6 +168,15 @@
                 float: right;
                 width: 15%;
                 min-width: 50px;
+            }
+
+            .category {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 10px;
+            }
+
+            .card div {
+                text-wrap: auto;
             }
         }
     </style>
@@ -197,7 +208,7 @@
         function performSearch() {
             const searchInput = document.getElementById('searchInput').value;
             const searchEngine = document.getElementById('searchEngine').value;
-            
+
             const searchUrls = {
                 google: 'https://www.google.com/search?q=',
                 bing: 'https://www.bing.com/search?q=',
@@ -210,12 +221,12 @@
             }
         }
 
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 performSearch();
             }
         });
-    
+
         function setCookie(name, value, days) {
             const d = new Date();
             d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
