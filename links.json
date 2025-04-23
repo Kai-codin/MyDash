@@ -1,20 +1,26 @@
 {
     "links": [
-		{
+	{
+            "name": "Kai Coding",
+            "url": "https://www.kaicoding.cc/",
+            "icon": "fas fa-globe",
+            "category": "My Projects"
+        },
+	{
             "name": "MyTask",
             "url": "https://mytask.kaicoding.cc/",
-            "icon": "fas fa-database",
+            "icon": "fas fa-list-check",
             "category": "My Projects"
         },
         {
             "name": "MyDash",
             "url": "https://dash.kaicoding.cc/",
-            "icon": "fas fa-database",
+            "icon": "fas fa-grid",
             "category": "My Projects"
         },
 		{
             "name": "Cloudflare",
-            "url": "https://new.mybustimes.cc/admin",
+            "url": "https://dash.cloudflare.com/",
             "icon": "fas fa-tools",
             "category": "Dev Tools"
         },
