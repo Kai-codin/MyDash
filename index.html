@@ -11,7 +11,7 @@
     <style>
         :root {
             --bg: #f4f4f4;
-            --text: #333;
+            --text: #333;1
             --card-bg: #ffffff;
             --icon-color: #e6e6e6;
         }
@@ -149,14 +149,22 @@
             
             .search-box {
                 flex-direction: column;
+                display: inline-block;
             }
 
             .search-engine {
                 width: 100%;
             }
 
+            .search-input {
+                float: left;
+                width: calc(80% - 20px);
+            }
+
             .search-button {
-                width: 100%;
+                float: right;
+                width: 15%;
+                min-width: 50px;
             }
         }
     </style>
