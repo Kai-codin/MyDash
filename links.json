@@ -94,19 +94,19 @@
             "name": "New MyBusTimes",
             "url": "https://new.mybustimes.cc",
             "icon": "fas fa-bus-alt",
-            "category": "MyBusTimes"
+            "category": "New MyBusTimes"
         },
         {
             "name": "New MyBusTimes API",
             "url": "https://new.mybustimes.cc/api",
             "icon": "fas fa-code",
-            "category": "MyBusTimes"
+            "category": "New MyBusTimes"
         },
         {
             "name": "New MyBusTimes Admin",
             "url": "https://new.mybustimes.cc/admin",
             "icon": "fas fa-tools",
-            "category": "MyBusTimes"
+            "category": "New MyBusTimes"
         },
         {
             "name": "MyBusTimes Updates",
